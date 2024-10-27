@@ -25,7 +25,7 @@
       </div>
       <ul class="menu__list">
         <li class="menu__item">
-          <a href="#" class="menu__link" (click)="scrollTo(macaroons)">Пироженки</a>
+          <a href="#" class="menu__link">Пироженки</a>
         </li>
         <li class="menu__item">
           <a href="#" class="menu__link" (click)="scrollTo(about)">О нас</a>
@@ -35,7 +35,7 @@
         </li>
       </ul>
     </nav>
-    <div class="phone header__phone">{{ headerPhoneNumber }}</div>
+    <div class="phone header__phone">{{ headerPhoneNumber | phoneNumber}}</div>
     <div class="burger" id="burger">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@
       <div class="information__text">
         Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
       </div>
-      <button class="btn information__btn" (click)="scrollTo(macaroons)">Выбрать макарун</button>
+      <button class="btn information__btn" appBackground>Выбрать макарун</button>
     </div>
     <div class="information__image">
       <img src="./assets/images/macaroons_box.png" alt="macaroons box" class="information__image-img">
@@ -83,36 +83,14 @@
   </div>
 </section>
 
-<section class="advantages">
-  <div class="container advantages__container">
-    <div class="advantage" *ngFor="let advantage of advantages; let i = index;">
-      <div class="advantage__circle">
-        <div class="advantage__number">{{ i + 1 }}</div>
-      </div>
-      <h3 class="advantage__title">{{ advantage.title }}</h3>
-      <div class="advantage__text">{{ advantage.text }}</div>
-    </div>
-
-  </div>
-</section>
+<app-advantages></app-advantages>
 
 <section class="choose" id="menu__link-pie" #macaroons>
   <div class="container choose__container">
     <h2 class="choose__title">Выберите свой макарун</h2>
+
     <div class="choose__list">
-      <div class="item" *ngFor="let foodCard of foodCards">
-        <div class="item__image">
-          <img src="./assets/images/{{foodCard.image}}" alt="First macaroon" class="item__image-img">
-        </div>
-        <h3 class="item__title">{{ foodCard.title }}</h3>
-        <div class="item__action">
-          <div class="item__action-info">
-            <div class="item__number">{{ foodCard.number }}</div>
-            <div class="item__price">{{ foodCard.price }}</div>
-          </div>
-          <button class="btn choose__btn" (click)="addToCart(foodCard, order)">Заказать</button>
-        </div>
-      </div>
+      <app-product-card *ngFor="let product of foodCards" [product]="product" (productAdded)="productAdded($event)"></app-product-card>
     </div>
   </div>
 </section>
@@ -143,7 +121,7 @@
       <input type="text" placeholder="Ваше имя" class="order__input input-data">
       <input type="text" placeholder="+375 (__) ___ - __ - __" class="order__input input-data">
       <div class="order__action">
-        <button class="btn order__btn">Оформить заказ</button>
+        <button class="btn order__btn" appBackground>Оформить заказ</button>
       </div>
     </div>
   </div>
@@ -151,14 +129,12 @@
 
 <footer class="footer">
   <div class="container footer__container">
-    <!--        <div class="footer__logorights">-->
     <div class="logo footer__logo">
       <a href="#">
         <img src="./assets/images/logo.png" alt="logo">
       </a>
     </div>
     <div class="rights">Все права защищены, 2020</div>
-    <!--        </div>-->
     <div class="footer__instagram">
       <a href="{{footerInstagramLink}}">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="footer__svg">
@@ -169,17 +145,17 @@
       </a>
       <div class="footer__instagram-text">Мы в Instagram</div>
     </div>
-    <div class="phone footer__phone">+375 (29) 368-98-68</div>
+    <div class="phone footer__phone">{{ '375293689868' | phoneNumber }}</div>
   </div>
 </footer>
 
 <div class="present" [style.display]="showPresent?'block':'none'">
   <div class="present__text">
-    Оформите заказ<br>
-    и получите подарок!
+    {{ cartService.totalPrice }} руб.
     <div class="present__triangle"></div>
   </div>
   <button class="present__circle">
-    <img src="./assets/images/present.png" alt="Present" class="present__image">
+    <img src="./assets/images/cart.png" alt="Present" class="present__image">
+    <div class="product__number">{{ cartService.count }}</div>
   </button>
 </div>

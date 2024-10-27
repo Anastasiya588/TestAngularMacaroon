@@ -1,62 +1,31 @@
-import {Component} from '@angular/core';
-import {AdvantageType} from "./types/Advantage.type";
+import {Component, OnInit} from '@angular/core';
 import {FoodCardType} from "./types/Food-card.type";
+import {ProductsService} from "./services/products.service";
+import {CartService} from "./services/cart.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   showPresent: boolean = true;
-  headerPhoneNumber: string = '+375 (29) 368-98-68';
+  headerPhoneNumber: string = '375293689868';
   footerInstagramLink: string = 'https://www.instagram.com/';
 
-  public advantages: AdvantageType[] = [
-    {
-      title: 'Лучшие продукты',
-      text: 'Мы честно готовим макаруны только из натуральных и качественных продуктов. Мы не используем консерванты, ароматизаторы и красители.'
-    },
-    {
-      title: 'Много вкусов',
-      text: 'Наша задача – предоставить вам широкое разнобразие вкусов. Вы удивитесь, но у нас более 70 вкусов пироженок.'
-    },
-    {
-      title: 'Бисквитное тесто',
-      text: 'Все пирожные готовятся на бисквитном тесте с качественным сливочным маслом 82,5%. В составе нет маргарина и дрожжей!'
-    },
-    {
-      title: 'Честный продукт',
-      text: 'Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии, которую мы получили 22.06.2016 г.'
-    },
-  ];
+  public foodCards: FoodCardType[] = [];
 
-  public foodCards: FoodCardType[] = [
-    {
-      image: '1.png',
-      title: 'Макарун с малиной',
-      number: '1 шт.',
-      price: '1,70 руб.',
-    },
-    {
-      image: '2.png',
-      title: 'Макарун с манго',
-      number: '1 шт.',
-      price: '1,70 руб.',
-    },
-    {
-      image: '3.png',
-      title: 'Пирог с ванилью',
-      number: '1 шт.',
-      price: '1,70 руб.',
-    },
-    {
-      image: '4.png',
-      title: 'Пирог с фисташками',
-      number: '1 шт.',
-      price: '1,70 руб.',
-    },
-  ];
+  constructor(private productService: ProductsService, public cartService: CartService) {
+
+  }
+
+  ngOnInit() {
+    this.foodCards = this.productService.getProducts();
+  }
+
+  productAdded(productTitle: string): void {
+    alert(productTitle + ' добавлен в корзину!');
+  }
 
   public formValues = {
     foodCardTitle: '',
@@ -72,5 +41,4 @@ export class AppComponent {
   public scrollTo(target: HTMLElement): void {
     target.scrollIntoView({behavior: "smooth"})
   };
-
 }

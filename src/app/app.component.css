@@ -2,10 +2,6 @@
   padding: 36px 0 26px 0;
 }
 
-.container {
-  max-width: 1140px;
-  margin: 0 auto;
-}
 
 .header__container {
   display: flex;
@@ -119,24 +115,6 @@
   }
 }
 
-.btn {
-  border: 0;
-  border-radius: 30px;
-  background: linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  background: -moz-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  background: -webkit-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  background: -ms-linear-gradient(90deg, rgb(113, 8, 30) 0%, rgb(215, 72, 92) 100%);
-  font-family: "GilroyBold", sans-serif;
-  color: rgb(255, 255, 255);
-  -webkit-transition: box-shadow 0.3s linear;
-  -moz-transition: box-shadow 0.3s linear;
-  -ms-transition: box-shadow 0.3s linear;
-  cursor: pointer;
-}
-
-.btn:hover {
-  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
-}
 
 .information__btn {
   width: 240px;
@@ -147,7 +125,7 @@
   line-height: 1;
 }
 
-.about, .advantages {
+.about {
   background-color: rgb(255, 239, 239);
 }
 
@@ -188,62 +166,6 @@
   max-width: 100%;
 }
 
-.advantages__container {
-  margin: auto;
-  padding: 59px 0 120px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 220px);
-  justify-content: space-between;
-  /*grid-column-gap: 87px;*/
-}
-
-.advantage__circle {
-  border-radius: 50%;
-  background-color: rgb(130, 19, 40);
-  width: 70px;
-  height: 70px;
-  position: relative;
-  margin-bottom: 13px;
-  -webkit-transition: background-color 0.25s linear;
-  -moz-transition: background-color 0.25s linear;
-  -ms-transition: background-color 0.25s linear;
-}
-
-.advantage__number {
-  font-size: 60px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: rgb(255, 255, 255);
-  line-height: 0.75;
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  -webkit-transition: color 0.25s linear;
-  -moz-transition: color 0.25s linear;
-  -ms-transition: color 0.25s linear;
-}
-
-.advantage__title {
-  font-size: 20px;
-  font-family: "GilroyExtraBold", sans-serif;
-  color: rgb(51, 25, 7);
-  margin-bottom: 20px;
-}
-
-.advantage__text {
-  font-size: 15px;
-  font-family: "GilroyMedium", sans-serif;
-  color: rgb(51, 25, 7);
-  line-height: 1.333;
-}
-
-.advantage:hover .advantage__circle {
-  background-color: #eba8b1;
-}
-
-.advantage:hover .advantage__number {
-  color: rgb(130, 19, 40);
-}
-
 .choose__container {
   padding: 120px 0;
 }
@@ -261,69 +183,6 @@
   display: grid;
   grid-template-columns: repeat(4, 263px);
   justify-content: space-between;
-  /*grid-column-gap: 29px;*/
-}
-
-.item {
-  padding: 109px 21px 27px 21px;
-  position: relative;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px;
-  box-sizing: border-box;
-}
-
-.item__image {
-  width: 195px;
-  height: 124px;
-  position: absolute;
-  left: calc(50% - 195px / 2);
-  top: -62px;
-}
-
-.item__image-img {
-  max-width: 100%;
-  max-height: 100%;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-}
-
-.item:hover .item__image-img {
-  transform: scale(1.17);
-}
-
-.item__title {
-  font-size: 18px;
-  font-family: "Tavolga", sans-serif;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin-bottom: 26px;
-}
-
-.item__action {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.item__action-info {
-  width: 57px;
-  font-size: 15px;
-  font-family: "GilroyRegular", sans-serif;
-  color: rgb(255, 255, 255);
-}
-
-.item__number {
-  margin-bottom: 15px;
-}
-
-.choose__btn {
-  padding: 19px 29px 20px;
-  width: 130px;
-  height: 50px;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 0;
 }
 
 .order {
@@ -484,7 +343,6 @@
   grid-template-areas:
             "footer__logo footer__instagram footer__phone"
             "rights footer__instagram footer__phone";
-  /*align-items: center;*/
   justify-content: space-between;
   align-items: center;
 }
@@ -530,17 +388,20 @@
 }
 
 .present__text {
-  font-size: 15px;
+  font-size: 25px;
+  text-align: center;
   font-family: "GilroyMedium", sans-serif;
   color: rgb(119, 10, 29);
   line-height: 1.333;
   padding: 16px 10px 14px 10px;
   box-sizing: border-box;
   width: 172px;
+  height: 73px;
   border: 2px solid rgb(119, 10, 29);
   border-radius: 10px;
   background-color: rgb(254, 239, 238);
-  position: relative;
+  position: absolute;
+  right: 90px;
   margin-right: 20px;
   transform: translateY(70px);
   opacity: 0;
@@ -552,14 +413,12 @@
   border-right: 2px solid rgb(119, 10, 29);
   background-color: rgb(254, 239, 238);
   position: absolute;
-  /*left: calc(100% - 7.51px);*/
   right: -11px;
   top: calc(50% - 8px);
   width: 16px;
   height: 16px;
   transform: rotate(45deg);
 }
-
 
 
 .present__circle {
@@ -590,8 +449,26 @@
 
 .present__image {
   position: absolute;
+  width: 50px;
+  height: 50px;
   left: calc(50% - 53px / 2);
   top: calc(50% - 52px / 2);
+}
+
+.product__number {
+  background-color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 90px;
+  border: 2px solid #790e23;
+  color: #790e23;
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .burger {
@@ -617,22 +494,6 @@
     justify-content: center;
     grid-column-gap: 29px;
     grid-row-gap: 130px;
-  }
-
-  .advantages__container {
-    grid-template-columns: repeat(2, 222px);
-    justify-content: center;
-    grid-column-gap: 54px;
-    grid-row-gap: 80px;
-  }
-
-  .advantage {
-    text-align: center;
-    max-width: 222px;
-  }
-
-  .advantage__circle {
-    margin: 0 auto 13px auto;
   }
 }
 
@@ -674,10 +535,6 @@
   .about__text {
     max-width: 100%;
     margin-bottom: 40px;
-  }
-
-  .advantages__container {
-    padding-top: 58px;
   }
 
   .about__image {
@@ -815,11 +672,6 @@
 }
 
 @media screen and (max-width: 610px) {
-  .advantages__container {
-    grid-template-columns: repeat(2, 165px);
-    grid-column-gap: 15px;
-    grid-row-gap: 36px;
-  }
 
   .footer__container {
     grid-template-areas:
@@ -891,20 +743,20 @@
 
 
 @media screen and (max-width: 565px) {
+  .choose__title {
+    font-size: 30px;
+  }
+
   .information__title {
     font-size: 32px;
   }
 
-  .information__text, .about__text, .advantage__title, .order__text {
+  .information__text, .about__text, .order__text {
     font-size: 16px;
   }
 
-  .about__title, .choose__title, .order__title {
+  .about__title, .order__title {
     font-size: 30px;
-  }
-
-  .advantage__text {
-    font-size: 13px;
   }
 
   .about__info, .about__title {
@@ -1063,10 +915,6 @@
     top: calc(50% - 300px / 2 + 280px);
   }
 
-  .advantages__container {
-    grid-template-columns: repeat(1, 165px);
-    grid-row-gap: 70px;
-  }
 
 }
 
@@ -1089,3 +937,7 @@
     top: calc(50% - 206px / 2 + 250px);
   }
 }
+
+
+
+

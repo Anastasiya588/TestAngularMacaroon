@@ -1,0 +1,14 @@
+<div class="item">
+  <div class="item__image">
+    <img src="./assets/images/{{product.image}}" alt="{{ product.title }}" class="item__image-img">
+  </div>
+  <h3 class="item__title">{{ product.title }}</h3>
+  <div class="item__action">
+    <div class="item__action-info">
+      <div class="item__number">{{ product.number }}</div>
+      <div class="item__price">{{ product.price | customCurrency }}</div>
+    </div>
+    <button class="btn choose__btn" (click)="addToCart()" appBackground>Заказать</button>
+  </div>
+</div>
+

@@ -1,0 +1,108 @@
+.advantages {
+  background-color: rgb(255, 239, 239);
+}
+.advantages__container {
+  margin: auto;
+  padding: 59px 0 120px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+  justify-content: space-between;
+  /*grid-column-gap: 87px;*/
+}
+
+.advantage__circle {
+  border-radius: 50%;
+  background-color: rgb(130, 19, 40);
+  width: 70px;
+  height: 70px;
+  position: relative;
+  margin-bottom: 13px;
+  -webkit-transition: background-color 0.25s linear;
+  -moz-transition: background-color 0.25s linear;
+  -ms-transition: background-color 0.25s linear;
+}
+
+.advantage__number {
+  font-size: 60px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 0.75;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  -webkit-transition: color 0.25s linear;
+  -moz-transition: color 0.25s linear;
+  -ms-transition: color 0.25s linear;
+}
+
+.advantage__title {
+  font-size: 20px;
+  font-family: "GilroyExtraBold", sans-serif;
+  color: rgb(51, 25, 7);
+  margin-bottom: 20px;
+}
+
+.advantage__text {
+  font-size: 15px;
+  font-family: "GilroyMedium", sans-serif;
+  color: rgb(51, 25, 7);
+  line-height: 1.333;
+}
+
+.advantage:hover .advantage__circle {
+  background-color: #eba8b1;
+}
+
+.advantage:hover .advantage__number {
+  color: rgb(130, 19, 40);
+}
+
+@media screen and (max-width: 1100px) {
+  .advantages__container {
+    grid-template-columns: repeat(2, 222px);
+    justify-content: center;
+    grid-column-gap: 54px;
+    grid-row-gap: 80px;
+  }
+
+  .advantage {
+    text-align: center;
+    max-width: 222px;
+  }
+  .advantage__circle {
+    margin: 0 auto 13px auto;
+  }
+}
+@media screen and (max-width: 900px) {
+
+  .advantages__container {
+    padding-top: 58px;
+  }
+
+}
+@media screen and (max-width: 610px) {
+  .advantages__container {
+    grid-template-columns: repeat(2, 165px);
+    grid-column-gap: 15px;
+    grid-row-gap: 36px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+
+  .advantage__title {
+    font-size: 16px;
+  }
+
+  .advantage__text {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .advantages__container {
+    grid-template-columns: repeat(1, 165px);
+    grid-row-gap: 70px;
+  }
+}
+
